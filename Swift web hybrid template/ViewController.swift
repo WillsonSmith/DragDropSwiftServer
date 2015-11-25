@@ -36,27 +36,6 @@ class ViewController: NSViewController {
     override class func isSelectorExcludedFromWebScript(selector: Selector) -> Bool {
         return false;
     }
-    
-    func executeJavascript(functionToRun:String, argument:String?) {
-        var functionName:String;
-        var arg:String;
-        if ((argument) != nil) {
-            arg = argument!;
-        } else {
-            arg = "";
-        }
-
-        functionName = "\(functionToRun)('\(arg)')";
-        self.webView.stringByEvaluatingJavaScriptFromString(functionName);
-    }
-    
-    func currentVersion() -> String {
-        return "Swift web hybrid template 1.0.0";
-    }
-    
-    func getCurrentVersion() {
-        executeJavascript("addVersion", argument:currentVersion());
-    }
 
     override var representedObject: AnyObject? {
         didSet {

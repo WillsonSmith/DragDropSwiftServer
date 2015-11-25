@@ -24,14 +24,30 @@ class DragWebView : WebView {
     override func performDragOperation(sender: NSDraggingInfo) -> Bool {
         
         let pboardItem = sender.draggingPasteboard();
-        let urlString = pboardItem.propertyListForType(NSFilenamesPboardType);
-        Swift.print("\(String(urlString![0]))");
+        let url = pboardItem.propertyListForType(NSFilenamesPboardType);
+        let urlString = String(url![0]);
         
         server.stop();
-        server["/(.+)"] = HttpHandlers.directory(String(urlString![0]));
+        self.executeJavascript("removeServerDirectory", argument: nil);
+        server["/(.+)"] = HttpHandlers.directory(urlString);
         server.start();
+        self.executeJavascript("addServerDirectory", argument: "\(urlString)");
         return false;
 //        return super.performDragOperation(sender);
+    }
+    
+    
+    func executeJavascript(functionToRun:String, argument:String?) {
+        var functionName:String;
+        var arg:String;
+        if ((argument) != nil) {
+            arg = argument!;
+        } else {
+            arg = "";
+        }
+        
+        functionName = "\(functionToRun)('\(arg)')";
+        self.stringByEvaluatingJavaScriptFromString(functionName);
     }
     
 }
