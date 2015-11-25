@@ -1,6 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+html *:before, html *:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
-
+  padding: 0 10px;
   font-family: -apple-system, sans-serif;
 }
 
@@ -15,4 +22,5 @@ p {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  text-align: center;
 }

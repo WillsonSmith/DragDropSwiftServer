@@ -1,9 +1,4 @@
-function addVersion(version) {
-    var textContainer = document.getElementsByClassName("text")[0];
-    var p = document.createElement("p");
-    p.textContent = version;
-    console.log(version);
-    textContainer.appendChild(p);
+function addServerDirectory(directory) {
+    var p = document.getElementById("server-directory");
+    p.textContent = directory;
 }
-
-swift.getCurrentVersion();
