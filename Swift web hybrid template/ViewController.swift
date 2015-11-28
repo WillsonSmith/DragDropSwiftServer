@@ -23,19 +23,6 @@ class ViewController: NSViewController {
         self.webView.windowScriptObject.setValue(self, forKey: "swift");
         
     }
-    
-    override class func webScriptNameForSelector(selector: Selector) -> String! {
-        switch(selector) {
-            case "getCurrentVersion:":
-                return "getCurrentVersion";
-            default:
-                return nil;
-        }
-    }
-    
-    override class func isSelectorExcludedFromWebScript(selector: Selector) -> Bool {
-        return false;
-    }
 
     override var representedObject: AnyObject? {
         didSet {

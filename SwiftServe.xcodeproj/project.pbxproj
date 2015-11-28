@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920D39EA1C0A6AD4003DF36D /* ScriptableWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920D39E91C0A6AD4003DF36D /* ScriptableWebView.swift */; };
 		928B65561BF17ACE004F17F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B65551BF17ACE004F17F4 /* AppDelegate.swift */; };
 		928B65581BF17ACE004F17F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B65571BF17ACE004F17F4 /* ViewController.swift */; };
 		928B655A1BF17ACE004F17F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928B65591BF17ACE004F17F4 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		2950484458D54F3E9D64C242 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4828BEF145F5D26F8DB76ACB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		920D39E91C0A6AD4003DF36D /* ScriptableWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptableWebView.swift; sourceTree = "<group>"; };
 		928B65521BF17ACE004F17F4 /* SwiftServe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftServe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		928B65551BF17ACE004F17F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		928B65571BF17ACE004F17F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		920D39E81C0A6ABA003DF36D /* WebViewClasses */ = {
+			isa = PBXGroup;
+			children = (
+				92B5202E1C04C0C100E632AF /* DragWebView.swift */,
+				920D39E91C0A6AD4003DF36D /* ScriptableWebView.swift */,
+			);
+			name = WebViewClasses;
+			sourceTree = "<group>";
+		};
 		928B65491BF17ACE004F17F4 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +110,13 @@
 		928B65541BF17ACE004F17F4 /* Swift web hybrid template */ = {
 			isa = PBXGroup;
 			children = (
+				920D39E81C0A6ABA003DF36D /* WebViewClasses */,
 				928B65771BF17D69004F17F4 /* web_root */,
 				928B65551BF17ACE004F17F4 /* AppDelegate.swift */,
 				928B65571BF17ACE004F17F4 /* ViewController.swift */,
 				928B65591BF17ACE004F17F4 /* Assets.xcassets */,
 				928B655B1BF17ACE004F17F4 /* Main.storyboard */,
 				928B655E1BF17ACE004F17F4 /* Info.plist */,
-				92B5202E1C04C0C100E632AF /* DragWebView.swift */,
 			);
 			path = "Swift web hybrid template";
 			sourceTree = "<group>";
@@ -289,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				920D39EA1C0A6AD4003DF36D /* ScriptableWebView.swift in Sources */,
 				928B65581BF17ACE004F17F4 /* ViewController.swift in Sources */,
 				928B65561BF17ACE004F17F4 /* AppDelegate.swift in Sources */,
 				92B5202F1C04C0C100E632AF /* DragWebView.swift in Sources */,

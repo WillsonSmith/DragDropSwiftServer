@@ -9,9 +9,7 @@
 import WebKit
 import Swifter
 
-class DragWebView : WebView {
-    
-    let server = HttpServer();
+class DragWebView : ScriptableWebView {
     
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
         return .Copy;
@@ -27,27 +25,24 @@ class DragWebView : WebView {
         let url = pboardItem.propertyListForType(NSFilenamesPboardType);
         let urlString = String(url![0]);
         
-        server.stop();
-        self.executeJavascript("removeServerDirectory", argument: nil);
-        server["/(.+)"] = HttpHandlers.directory(urlString);
-        server.start();
-        self.executeJavascript("addServerDirectory", argument: "\(urlString)");
-        return false;
-//        return super.performDragOperation(sender);
-    }
-    
-    
-    func executeJavascript(functionToRun:String, argument:String?) {
-        var functionName:String;
-        var arg:String;
-        if ((argument) != nil) {
-            arg = argument!;
-        } else {
-            arg = "";
-        }
+        manageWebServer(self, start: true, directory: urlString);
         
-        functionName = "\(functionToRun)('\(arg)')";
-        self.stringByEvaluatingJavaScriptFromString(functionName);
+        return false;
     }
     
+}
+
+func manageWebServer(webview: ScriptableWebView, start: Bool, directory: String = "") {
+    
+    let server = HttpServer();
+
+    if (start == false) {
+        server.stop();
+    } else {
+        server.stop();
+        webview.executeJavascript("removeServerDirectory", argument: nil);
+        server["/(.+)"] = HttpHandlers.directory(directory);
+        server.start();
+        webview.executeJavascript("addServerDirectory", argument: "\(directory)");
+    }
 }
